@@ -27,6 +27,7 @@ public class MatchActivity extends AppCompatActivity {
     private Button addHome;
     private Button addAway;
     private Button cekResult;
+    private Button reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MatchActivity extends AppCompatActivity {
         addHome = findViewById(R.id.btn_add_home);
         addAway = findViewById(R.id.btn_add_away);
         cekResult = findViewById(R.id.btn_result);
+        reset = findViewById(R.id.btn_reset)
 
         homescore = 0;
         awayscore = 0;
@@ -54,6 +56,17 @@ public class MatchActivity extends AppCompatActivity {
         awayText.setText(awayteam);
         homeLogo.setImageURI(Uri.parse(bundle.getString("homeImg")));
         awayLogo.setImageURI(Uri.parse(bundle.getString("awayImg")));
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homescore = 0;
+                awayscore = 0;
+                scoreHome.setText(String.valueOf(homescore));
+                scoreAway.setText(String.valueOf(awayscore));
+            }
+        });
+
 
         addHome.setOnClickListener(new View.OnClickListener() {
             @Override
